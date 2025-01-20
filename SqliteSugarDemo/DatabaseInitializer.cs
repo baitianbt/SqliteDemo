@@ -195,9 +195,7 @@ namespace SqliteSugarDemo
                 var tables = new[] { "Users", "Departments", "SchemaVersions" };
                 foreach (var table in tables)
                 {
-                    var tableExists = await _dbHelper._db.Ado.ExecuteScalarAsync<int>(
-                        "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name=@table",
-                        new { table }) > 0;
+                    var tableExists = _dbHelper._db.DbMaintenance.IsAnyTable(table);
 
                     if (!tableExists)
                     {

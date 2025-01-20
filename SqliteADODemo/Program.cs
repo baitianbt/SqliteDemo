@@ -1,5 +1,5 @@
 using Microsoft.Data.Sqlite;
-using SqliteADODemo.Entities;
+
 
 namespace SqliteADODemo
 {

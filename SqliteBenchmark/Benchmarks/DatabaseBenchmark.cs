@@ -27,6 +27,7 @@ namespace SqliteBenchmark.Benchmarks
             
             // 初始化数据库
             var initializer = new SqliteADODemo.DatabaseInitializer(_dbPath);
+
             await initializer.InitializeAsync();
 
             // 初始化各个Helper

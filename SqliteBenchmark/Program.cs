@@ -1,4 +1,8 @@
+using BenchmarkDotNet.Columns;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Loggers;
 using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Validators;
 using SqliteBenchmark.Benchmarks;
 
 namespace SqliteBenchmark
@@ -7,7 +11,10 @@ namespace SqliteBenchmark
     {
         public static void Main(string[] args)
         {
-            BenchmarkRunner.Run<DatabaseBenchmark>();
+            var config = DefaultConfig.Instance
+                .WithOptions(ConfigOptions.DisableOptimizationsValidator);
+
+            BenchmarkRunner.Run<DatabaseBenchmark>(config);
         }
     }
-} 
+}
